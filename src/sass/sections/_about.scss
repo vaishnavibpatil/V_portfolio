@@ -1,0 +1,64 @@
+#about {
+  background-color: $primary-color;
+  background-image: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: $white-color;
+  min-height: 100vh; // Ensures full-screen coverage without extra space
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 12%;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+  @include respond(tab-land) {
+    min-height: 100vh;
+    clip-path: none;
+  }
+
+  .about-wrapper {
+    @include respond(phone) {
+      padding-bottom: 6rem;
+    }
+
+    &__image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+
+      img {
+        width: 280px;  // Adjusted for better proportion
+        height:300px; 
+        border-radius: 50%;
+        object-fit: contain; // Ensures the full image fits without cutting
+        border: 5px solid rgba($white-color, 0.3);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    &__info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      @include respond(tab-port-sm) {
+        align-items: center;
+      }
+
+      &-text {
+        text-align: left;
+
+        @include respond(tab-port) {
+          text-align: left;
+        }
+        @include respond(tab-port-sm) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
